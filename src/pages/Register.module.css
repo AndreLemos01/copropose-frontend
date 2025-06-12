@@ -1,0 +1,160 @@
+/* src/pages/Register.module.css */
+
+.registerWrapper {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f2f7 0%, #c1e4ec 100%); /* Gradiente de fundo suave, diferente do login */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.registerContainer {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 2.5rem 3rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeInScale 0.5s ease-out forwards;
+}
+
+.registerHeader {
+  margin-bottom: 2rem;
+}
+
+.logo {
+  max-height: 80px;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #074801; 
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; 
+  margin-bottom: 1.5rem;
+}
+
+.inputGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #CED4DA;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.inputGroup:focus-within {
+  border-color: #137f09;
+  box-shadow: 0 0 0 3px rgba(19, 127, 9, 0.2);
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  color: #A0AEC0;
+  font-size: 1.2rem;
+}
+
+.inputField {
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 3rem;
+  border: none;
+  background-color: transparent; 
+  font-size: 1rem;
+  color: #495057;
+  border-radius: 8px;
+  outline: none;
+}
+
+.inputField::placeholder {
+  color: #A0AEC0;
+}
+
+.registerButton {
+  background-color: #074801;
+  color: white;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(7, 72, 1, 0.2);
+}
+
+.registerButton:hover {
+  background-color: #137f09;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(7, 72, 1, 0.3);
+}
+
+.registerButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(7, 72, 1, 0.2);
+}
+
+.registerFooter {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.loginLink {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.loginLink:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Animação de entrada do container de registro */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .registerContainer {
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .logo {
+    max-height: 60px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .registerButton {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+}

@@ -1,0 +1,116 @@
+/* src/components/dashboard/CRMCard.module.css */
+
+.kanbanCard {
+  background-color: #ffffff;
+  background-image: linear-gradient(to bottom right, #ffffff, #f7f9fc); /* Gradiente sutil */
+  padding: 1.2rem; /* Mais padding */
+  margin-bottom: 1rem;
+  border-radius: 12px; /* Cantos mais arredondados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra mais suave e elevada */
+  user-select: none;
+  transition: all 0.3s ease; /* Transição para hover e outros estados */
+  border: 1px solid #e9ecef; /* Borda sutil */
+  position: relative; /* Para posicionar o menu */
+}
+
+.kanbanCard:hover {
+  transform: translateY(-5px); /* Efeito de elevação sutil no hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra mais forte no hover */
+}
+
+.dragging {
+  background-color: #e6f7ff; /* Cor azul suave ao arrastar */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); /* Sombra mais forte ao arrastar */
+  transform: rotate(1deg) translateY(-8px); /* Leve rotação e elevação ao arrastar */
+  cursor: grabbing;
+}
+
+.clientName {
+  margin: 0 0 0.4rem 0;
+  font-weight: 700;
+  font-size: 1.15rem; /* Um pouco maior */
+  color: #343a40; /* Cor de texto mais escura e impactante */
+}
+
+.clientProposal {
+  margin: 0;
+  font-size: 0.95rem; /* Um pouco maior */
+  color: #6c757d; /* Cor de texto mais suave para os detalhes da proposta */
+}
+
+/* Menu de Ações (3 pontos verticais) */
+.cardActionsMenu {
+  position: absolute;
+  top: 10px; /* Alinha mais perto do topo */
+  right: 10px; /* Mantém no canto superior direito do card */
+  cursor: pointer;
+  z-index: 10;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  font-size: 1rem; /* Pontos menores */
+  color: #888; /* Cor dos pontos */
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%; /* Torna o botão redondo */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menuButton:hover {
+  background-color: #f0f0f0;
+  color: #555;
+}
+
+.menuDropdown {
+  position: absolute;
+  top: 0; /* Alinha o topo do dropdown com o topo do botão */
+  right: calc(100% + 5px); /* Posiciona à esquerda do botão, com um pequeno espaço */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  padding: 0.5rem 0;
+  margin-top: 0; /* Remove margem superior */
+  min-width: 150px; /* Aumenta um pouco a largura para melhor visualização das opções */
+  z-index: 1000; /* Z-index muito alto para garantir que sobreponha */
+  white-space: nowrap; /* Evita que o texto quebre */
+}
+
+.menuDropdown li {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  color: #343a40;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaçamento entre ícone e texto */
+}
+
+.menuDropdown li:hover {
+  background-color: #f8f9fa; /* Leve destaque no hover */
+  color: #007bff; /* Cor de destaque ao hover */
+}
+
+/* Estilos para o badge de status (APROVADA/REPROVADA) */
+.statusBadge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+}
+
+.statusBadge.approved {
+    background-color: #28a745; /* Verde para aprovado */
+}
+
+.statusBadge.rejected {
+    background-color: #dc3545; /* Vermelho para reprovado */
+}

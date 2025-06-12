@@ -1,0 +1,171 @@
+/* src/pages/Dashboard.module.css */
+
+.dashboardContainer {
+  padding: 1rem 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Consistência de fonte */
+}
+
+.cardsRow {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza os cards quando há espaço */
+}
+
+.card {
+  background-color: #FFFFFF; /* Fundo branco e limpo */
+  border-radius: 12px; /* Cantos mais arredondados */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Sombra mais suave e elevada */
+  flex: 1 1 45%; /* Flexibilidade para ocupar espaço */
+  min-width: 450px; /* Largura mínima para cards */
+  padding: 1.5rem; /* Mais padding */
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação no hover */
+  border: 1px solid #E9ECEF; /* Borda sutil */
+}
+
+.card:hover {
+  transform: translateY(-8px); /* Elevação no hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra mais forte no hover */
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem; /* Mais espaço abaixo do header */
+}
+
+.cardHeader h2 {
+  font-size: 1.5rem; /* Título maior */
+  color: #074801; /* Verde principal do sistema */
+  margin: 0;
+  font-weight: 700;
+}
+
+.cardMenu {
+  position: relative;
+}
+
+.menuButton {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #6C757D; /* Cinza Médio para menu de opções */
+  padding: 0.25rem 0.5rem; /* Padding para a área clicável */
+  border-radius: 50%; /* Torna o botão redondo */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menuButton:hover {
+  background-color: #f0f0f0;
+  color: #555;
+}
+
+.menuList {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra mais moderna */
+  border-radius: 8px; /* Cantos arredondados */
+  margin-top: 0.5rem;
+  min-width: 160px; /* Largura mínima */
+  z-index: 10;
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+.menuList li button {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1.2rem; /* Mais padding */
+  cursor: pointer; 
+  font-size: 0.95rem; 
+  color: #333333; /* Cor de texto padrão */
+  transition: background-color 0.2s ease, color 0.2s ease; 
+}
+
+.menuList li button:hover,
+.menuList li button:focus {
+  background-color: #f5f5f5; /* Fundo suave no hover */
+  color: #074801; /* Cor de destaque no hover */
+  outline: none;
+}
+
+/* Lista de Valores e Baixas */
+.valoresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.valorItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0; /* Mais padding */
+  border-bottom: 1px solid #eee; /* Borda mais suave */
+  font-weight: 600;
+  color: #333333; /* Cor de texto padrão */
+}
+
+.valorItem:last-child {
+  border-bottom: none;
+}
+
+.valorLabel {
+  font-size: 1rem;
+}
+
+.valorNumber {
+  font-size: 1.1rem; /* Valor um pouco maior */
+  font-weight: 700; 
+  color: #074801; /* Cor de destaque para o valor */
+}
+
+/* Mensagem de Sem Dados */
+.noDataMessage {
+  text-align: center;
+  padding: 2rem;
+  color: #888;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .cardsRow {
+    flex-direction: column;
+    align-items: center; /* Centraliza cards empilhados */
+  }
+
+  .card {
+    min-width: 90%; /* Ocupa mais largura em telas menores */
+    max-width: 600px; /* Limita a largura para cards muito grandes */
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    min-width: 100%; /* Ocupa a largura total em telas pequenas */
+    padding: 1rem;
+  }
+  .cardHeader h2 {
+    font-size: 1.3rem;
+  }
+  .valorItem {
+    font-size: 0.95rem;
+  }
+}
+
+/* Os estilos do CRM Kanban foram movidos para CRM.module.css */
+/* As cores e estilos do CRM Kanban em CRM.module.css já seguem a nova paleta. */

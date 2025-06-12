@@ -1,0 +1,238 @@
+/* src/components/configuracoes/FormaPagamento.module.css */
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #074801; /* Cor principal */
+  border-bottom: 1px solid #eee; /* Linha de separação */
+  padding-bottom: 0.5rem;
+}
+
+.addForm {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem; /* Mais espaço antes da lista */
+  align-items: center;
+  background-color: #f8f9fa; /* Fundo suave para o formulário de adição */
+  padding: 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.input {
+  flex-grow: 1;
+  padding: 0.6rem 0.8rem; /* Aumenta padding */
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #137f09;
+  box-shadow: 0 0 0 3px rgba(19, 127, 9, 0.2);
+}
+
+.selectIcon {
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none; /* Remove seta padrão do select */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292%22%20height%3D%22292%22%3E%3Cpath%20fill%3D%22%236c757d%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.8-6.1H18.9c-7.7%200-13.8%206.1-13.8%2013.8v4.4c0%207.7%206.1%2013.8%2013.8%2013.8h254.3c7.7%200%2013.8-6.1%2013.8-13.8V69.4z%22%2F%3E%3Cpath%20fill%3D%22%236c757d%22%20d%3D%22M287%20222.6a17.6%2017.6%200%200%200-13.8-6.1H18.9c-7.7%200-13.8%206.1-13.8%2013.8v4.4c0%207.7%206.1%2013.8%2013.8%2013.8h254.3c7.7%200%2013.8-6.1%2013.8-13.8V222.6z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 0.6rem auto;
+  padding-right: 2rem; /* Espaço para a seta customizada */
+}
+
+.selectIcon:focus {
+  outline: none;
+  border-color: #137f09;
+  box-shadow: 0 0 0 3px rgba(19, 127, 9, 0.2);
+}
+
+/* Para esconder o texto das opções no select (o que já estava, mas com o label no JS fica mais claro) */
+/* Removido `color: transparent; text-shadow: 0 0 0 #000;` para que o label seja visível no dropdown */
+/* Mantendo o ícone separado para visualização */
+.iconPreview,
+.iconPreviewEdit {
+  font-size: 1.5rem; /* Tamanho do ícone de preview */
+  color: #074801; /* Cor para o ícone de preview */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem; /* Garante que o ícone tenha um espaço fixo */
+  flex-shrink: 0;
+}
+
+
+.addButton {
+  padding: 0.6rem 1rem;
+  background-color: #074801;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap; /* Evita que o texto quebre */
+}
+
+.addButton:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.addButton:hover:not(:disabled) {
+  background-color: #137f09;
+  transform: translateY(-2px); /* Leve elevação */
+  box-shadow: 0 4px 10px rgba(7, 72, 1, 0.2);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* Espaçamento entre os elementos da linha */
+  padding: 0.8rem 1rem; /* Mais padding para itens da lista */
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+  color: #333;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+.listItem.editing {
+  background-color: #e6f7ff; /* Fundo azul claro para item em edição */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.icon {
+  font-size: 1.5rem; /* Tamanho do ícone na lista */
+  color: #074801;
+  width: 2rem; /* Garante alinhamento */
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.formaNome {
+  flex-grow: 1; /* Ocupa o espaço restante */
+  font-weight: 500;
+}
+
+.actions { /* Container para os botões de ação (editar/remover) */
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.editButton,
+.removeButton,
+.saveButton,
+.cancelButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem; /* Tamanho dos ícones de ação */
+  padding: 0.3rem; /* Área clicável */
+  border-radius: 50%; /* Botões redondos para ícones */
+  transition: all 0.2s ease;
+  display: flex; /* Para centralizar o ícone */
+  align-items: center;
+  justify-content: center;
+}
+
+.editButton {
+  color: #007bff; /* Azul para editar */
+}
+
+.editButton:hover {
+  background-color: #e0f0ff; /* Fundo suave no hover */
+  color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.removeButton {
+  color: #dc3545; /* Vermelho para remover */
+}
+
+.removeButton:hover {
+  background-color: #ffe0e0;
+  color: #c82333;
+  transform: translateY(-2px);
+}
+
+.saveButton {
+  color: #28a745; /* Verde para salvar */
+}
+
+.saveButton:hover {
+  background-color: #eafbea;
+  color: #218838;
+  transform: translateY(-2px);
+}
+
+.cancelButton {
+  color: #6c757d; /* Cinza para cancelar */
+}
+
+.cancelButton:hover {
+  background-color: #f0f0f0;
+  color: #5a6268;
+  transform: translateY(-2px);
+}
+
+.inputEdit {
+  flex-grow: 1;
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.inputEdit:focus {
+  outline: none;
+  border-color: #074801;
+  box-shadow: 0 0 0 3px rgba(19, 127, 9, 0.2);
+}
+
+.selectIconEdit {
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292%22%20height%3D%22292%22%3E%3Cpath%20fill%3D%22%236c757d%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.8-6.1H18.9c-7.7%200-13.8%206.1-13.8%2013.8v4.4c0%207.7%206.1%2013.8%2013.8%2013.8h254.3c7.7%200%2013.8-6.1%2013.8-13.8V69.4z%22%2F%3E%3Cpath%20fill%3D%22%236c757d%22%20d%3D%22M287%20222.6a17.6%2017.6%200%200%200-13.8-6.1H18.9c-7.7%200-13.8%206.1-13.8%2013.8v4.4c0%207.7%206.1%2013.8%2013.8%2013.8h254.3c7.7%200%2013.8-6.1%2013.8-13.8V222.6z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 0.6rem auto;
+  padding-right: 2rem;
+  width: auto; /* Permite que o select se ajuste ao conteúdo */
+}

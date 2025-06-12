@@ -1,0 +1,167 @@
+/* src/pages/SystemConfig.module.css */
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.btnVoltar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #074801; /* verde escuro */
+  transition: color 0.2s ease-in-out;
+}
+
+.btnVoltar:hover {
+  color: #137f09; /* verde mais claro no hover */
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #074801;
+  margin: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #eee; /* Linha sutil para as tabs */
+  padding-bottom: 5px;
+}
+
+.tabButton {
+  background: #d9d9d9;
+  border: none;
+  padding: 10px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #074801;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.tabButton:hover {
+  background: #137f09;
+  color: #fff;
+}
+
+.tabButton.active {
+  background: #074801;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.content {
+  background: #fff;
+  padding: 25px; /* Mais padding */
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgb(0 0 0 / 0.1); /* Sombra mais pronunciada */
+}
+
+/* Formulário de Configurações */
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 1.05rem;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #137f09;
+  box-shadow: 0 0 0 3px rgba(19, 127, 9, 0.2);
+}
+
+.saveButton {
+  background-color: #074801; /* Verde escuro */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.saveButton:hover {
+  background-color: #137f09; /* Verde mais claro */
+}
+
+/* Seção de Reset de Dados */
+.divider {
+  margin: 30px 0;
+  border: 0;
+  border-top: 1px dashed #ddd; /* Linha tracejada */
+}
+
+.resetSection {
+  background-color: #fff4f4; /* Fundo levemente avermelhado para alertar */
+  border: 1px solid #ffcccc; /* Borda avermelhada */
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.resetTitle {
+  font-size: 1.5rem;
+  color: #c0392b; /* Vermelho mais forte */
+  margin-bottom: 10px;
+}
+
+.resetText {
+  font-size: 1rem;
+  color: #e74c3c; /* Vermelho padrão */
+  margin-bottom: 20px;
+}
+
+.resetButton {
+  background-color: #e74c3c; /* Vermelho para reset */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: inline-flex; /* Para alinhar ícone e texto */
+  align-items: center;
+  gap: 8px;
+}
+
+.resetButton:hover {
+  background-color: #c0392b; /* Tom mais escuro no hover */
+}

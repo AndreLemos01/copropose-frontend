@@ -1,0 +1,111 @@
+/* Accordion Section */
+.accordionSection {
+  margin-top: 20px;
+}
+
+/* Espaçamento entre cards do accordion */
+.accordionCard {
+  margin-bottom: 5px; /* 5px entre accordions */
+}
+
+.accordionToggle {
+  text-align: left;
+  color: #444 !important;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+
+.accordionTitle {
+  display: inline-block;
+  color: #444;
+  font-weight: 700;
+}
+
+.accordionBody {
+  padding: 10px; /* Padding interno para o corpo do acordeão */
+}
+
+/* Linha para inputs com vários elementos lado a lado (telefone, email) */
+.multiInputRow {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaçamento entre o input e os botões */
+  margin-bottom: 8px; /* Espaçamento entre as linhas de input */
+}
+
+/* Botões + e – para adicionar/remover */
+.addButton,
+.removeButton {
+  background-color: #074801; /* Verde principal */
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem; /* Tamanho da fonte para o símbolo */
+  cursor: pointer;
+  padding: 4px 10px; /* Ajuste o padding para o tamanho do botão */
+  border-radius: 6px; /* Cantos arredondados */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+  line-height: 1; /* Alinha o texto/símbolo verticalmente */
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Impede que os botões diminuam */
+}
+
+.addButton:hover,
+.removeButton:hover {
+  background-color: #137f09; /* Verde mais claro no hover */
+  transform: translateY(-1px); /* Leve elevação no hover */
+}
+
+/* Inputs básicos e input CEP com máscara */
+.input,
+.inputCep {
+  padding: 0.8rem 1rem; /* Mais padding para maior área de clique/toque */
+  border-radius: 8px; /* Cantos mais arredondados */
+  border: 1px solid #CED4DA; /* Borda suave */
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Transições suaves para foco */
+  background-color: #F8F9FA; /* Fundo suave para os inputs */
+  outline: none; /* Remove o outline padrão */
+  width: 100%; /* Default para outros inputs */
+}
+
+.input:focus,
+.inputCep:focus,
+.textarea:focus,
+select:focus {
+  border-color: #074801;
+  box-shadow: 0 0 0 3px rgba(19, 127, 9, 0.2); /* Sombra de foco moderna */
+  outline: none;
+}
+
+/* Textarea */
+.textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.8rem 1rem; /* Consistente com inputs */
+  border-radius: 8px; /* Consistente com inputs */
+  border: 1px solid #CED4DA; /* Consistente com inputs */
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.2s ease;
+  outline: none;
+  resize: vertical; /* Permite redimensionar verticalmente */
+  background-color: #F8F9FA; /* Fundo suave */
+}
+
+/* Estilo para erro nos inputs */
+.inputError {
+  border-color: #dc3545 !important; /* Vermelho forte para erro */
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2) !important; /* Sombra vermelha no erro */
+}
+
+.errorMsg {
+  color: #dc3545; /* Cor da mensagem de erro */
+  font-size: 0.85rem;
+  margin-top: 0.25rem; /* Espaçamento entre o input e a mensagem de erro */
+  margin-bottom: 0.5rem; /* Espaçamento abaixo da mensagem de erro */
+}

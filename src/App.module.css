@@ -1,0 +1,81 @@
+/* src/App.module.css */
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+  padding: 1rem;
+  background-color: #F8F9FA; /* Fundo geral mais claro */
+  box-sizing: border-box;
+  overflow-x: hidden;
+  /* Ajustes para posicionar o mainContent corretamente ao lado da sidebar e abaixo da navbar */
+  margin-left: 0; /* Será controlado por JS ou layout flex */
+  padding-top: 60px; /* Adiciona padding para a Navbar */
+}
+
+/* Base para a Navbar e o mainContent se moverem com a Sidebar */
+.layoutContainer {
+  display: flex;
+  flex-direction: column; /* Em mobile, Navbar e MainContent se empilham */
+  min-height: 100vh;
+}
+
+/* Estilos para a Navbar quando a sidebar está aberta/fechada */
+.navbarContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 60px; /* Altura da navbar */
+  z-index: 999; /* Garante que a navbar fique acima de tudo */
+  transition: width 0.3s ease, left 0.3s ease; /* Transições suaves para a largura */
+}
+
+/* Estilos para o mainContent (o conteúdo principal da página) */
+.contentArea {
+  flex-grow: 1; /* Permite que ocupe o espaço restante */
+  overflow-y: auto; /* Permite rolagem vertical para o conteúdo */
+}
+
+/* Quando a sidebar está aberta */
+.sidebarOpen .navbarContainer {
+  left: 280px; /* Começa à direita da sidebar */
+  width: calc(100% - 280px); /* Ocupa o restante da largura */
+}
+
+.sidebarOpen .mainContent {
+  margin-left: 280px; /* Empurra o conteúdo para a direita da sidebar */
+}
+
+/* Quando a sidebar está fechada */
+.sidebarClosed .navbarContainer {
+  left: 80px; /* Começa à direita da sidebar fechada */
+  width: calc(100% - 80px); /* Ocupa o restante da largura */
+}
+
+.sidebarClosed .mainContent {
+  margin-left: 80px; /* Empurra o conteúdo para a direita da sidebar fechada */
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+  .navbarContainer,
+  .sidebarOpen .navbarContainer,
+  .sidebarClosed .navbarContainer {
+    left: 0; /* Navbar fica sempre na largura total em mobile */
+    width: 100%;
+  }
+
+  .mainContent,
+  .sidebarOpen .mainContent,
+  .sidebarClosed .mainContent {
+    margin-left: 0; /* Conteúdo sem margem esquerda em mobile */
+  }
+
+  /* Em mobile, a sidebar desliza por cima do conteúdo, não o empurra */
+  .sidebar {
+    left: -280px; /* Já configurado para esconder */
+  }
+  .open {
+    left: 0;
+  }
+}

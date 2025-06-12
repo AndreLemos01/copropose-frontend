@@ -1,0 +1,211 @@
+/* src/components/Sidebar.module.css */
+/* Container Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: #f8f8f8;
+  color: #333;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15); /* Sombra mais suave e evidente */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  z-index: 1000;
+}
+
+/* Abierto e fechado */
+.open {
+  width: 280px;
+}
+
+.closed {
+  width: 80px; /* Largura para sidebar fechada */
+}
+
+/* Header toggle */
+.sidebarHeader {
+  display: flex;
+  justify-content: space-between; /* Para alinhar logo à esquerda e botão à direita */
+  align-items: center; /* Alinha verticalmente */
+  padding: 0.75rem 1rem; /* Mais padding */
+  border-bottom: 1px solid #e0e0e0; /* Borda mais clara */
+}
+
+/* Estilos para o link do logo na sidebar header */
+.sidebarLogoLink { /* Novo estilo para o Link do logo */
+  display: flex; /* Para que o Link se comporte como um contêiner flex */
+  align-items: center; /* Alinha o logo verticalmente no centro do Link */
+  text-decoration: none; /* Remove sublinhado padrão do Link */
+  cursor: pointer;
+  flex-grow: 1; /* Permite que o link ocupe o espaço */
+}
+
+.sidebarLogoContainer {
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem; /* Um pequeno padding à esquerda para o logo */
+}
+
+.sidebarLogo {
+  max-height: 35px; /* Altura máxima para o logotipo */
+  width: auto; /* Mantém a proporção */
+  object-fit: contain;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Quando a sidebar está fechada, o logo some */
+.closed .sidebarLogoContainer {
+  display: none; /* Esconde completamente o container do logo */
+}
+
+.toggleButton {
+  background: transparent;
+  border: none;
+  color: #555; /* Cor mais suave */
+  cursor: pointer;
+  padding: 0.25rem; /* Aumenta a área clicável sem expandir o ícone */
+  border-radius: 50%; /* Torna o botão redondo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease; /* Transição para hover do botão */
+}
+
+.toggleButton:hover,
+.toggleButton:focus {
+  background-color: #e6f4ea; /* Fundo suave no hover */
+  color: #137f09; /* Verde mais vibrante */
+  outline: none;
+}
+
+/* Lista de navegação */
+.navList {
+  list-style: none;
+  padding: 1.5rem 0; /* Mais padding vertical */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Aumenta o espaçamento entre os itens */
+  flex-grow: 1; /* Permite que a lista ocupe o espaço restante */
+  overflow-y: auto;
+}
+
+/* Links nav */
+.navLink,
+.activeLink {
+  padding: 0.9rem 1.5rem; /* Mais padding para itens maiores */
+  margin: 0 0.5rem; /* Margem horizontal para "flutuar" os itens */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease; /* Adiciona transform para leve animação */
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  background-color: #e1e1e1;
+  color: #000;
+  transform: translateX(5px); /* Leve movimento para a direita no hover */
+}
+
+.activeLink {
+  background-color: #d4d4d4;
+  color: #000;
+  font-weight: 700;
+  cursor: default;
+  box-shadow: inset 3px 0 0 #074801; /* Linha verde na lateral para indicar ativo */
+}
+
+/* Ícones dentro dos links */
+.navLink svg,
+.activeLink svg {
+  flex-shrink: 0; /* IMPEDE O ÍCONE DE DIMINUIR */
+  width: 22px; /* Aumenta um pouco o tamanho do ícone */
+  height: 22px; /* Aumenta um pouco o tamanho do ícone */
+  color: #777; /* Cor mais neutra para ícones */
+  transition: color 0.2s ease;
+}
+
+.activeLink svg {
+  color: #074801; /* Ícone ativo na cor verde principal */
+}
+
+/* Texto visível só quando aberto */
+.linkText {
+  display: inline-block;
+}
+
+.closed .linkText {
+  display: none;
+}
+
+/* Scrollbar para sidebar */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Tooltip para sidebar fechada */
+.closed .navLink,
+.closed .activeLink {
+  justify-content: center; /* Centraliza o ícone quando o texto está oculto */
+  position: relative;
+  margin: 0.5rem; /* Ajusta a margem para ícones centralizados */
+}
+
+.closed .navLink::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: calc(100% + 15px); /* Posiciona à direita do ícone */
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateX(-10px);
+  z-index: 1001; /* Garante que o tooltip fique acima */
+}
+
+.closed .navLink:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -280px; /* Esconde completamente quando fechada em mobile */
+    width: 280px;
+    transition: left 0.3s ease;
+  }
+  .open {
+    left: 0;
+  }
+  .closed {
+    left: -280px; /* Garante que ela saia da tela */
+  }
+  /* Em mobile, não mostrar tooltip já que a sidebar desliza */
+  .closed .navLink::after {
+    content: none;
+  }
+}

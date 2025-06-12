@@ -1,0 +1,247 @@
+/* src/pages/Clientes.module.css */
+
+.clientesContainer {
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px; /* Cantos mais arredondados */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Sombra mais proeminente */
+  max-width: none;
+  width: 100%; /* Ocupa a largura total disponível */
+  margin: 2rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem; /* Mais espaçamento */
+  flex-wrap: wrap; /* Permite quebrar em linhas em telas pequenas */
+  gap: 1rem; /* Espaçamento entre os itens do header */
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #074801; /* Verde principal */
+  margin: 0;
+}
+
+.actionsGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Espaçamento entre a barra de busca e o botão */
+  flex-wrap: wrap; /* Permite quebrar em linhas */
+}
+
+.searchBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Permite que a barra de busca ocupe espaço */
+  min-width: 250px; /* Largura mínima para a busca */
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  color: #a0aec0; /* Cor suave para o ícone de busca */
+  font-size: 1.1rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.8rem; /* Padding para o ícone */
+  border: 1px solid #ced4da;
+  border-radius: 8px; /* Cantos arredondados */
+  font-size: 1rem;
+  color: #495057;
+  background-color: #f8f9fa; /* Fundo suave */
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color: #137f09;
+  box-shadow: 0 0 0 3px rgba(19, 127, 9, 0.15);
+}
+
+
+.btnNovoCliente {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #074801;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem; /* Mais padding */
+  border-radius: 8px; /* Cantos arredondados */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(7, 72, 1, 0.2);
+}
+
+.btnNovoCliente:hover {
+  background-color: #137f09;
+  transform: translateY(-2px); /* Leve elevação */
+  box-shadow: 0 6px 15px rgba(7, 72, 1, 0.3);
+}
+
+.tableWrapper { /* Novo wrapper para a tabela com rolagem */
+  overflow-x: auto; /* Permite rolagem horizontal em tabelas largas */
+  border-radius: 8px; /* Cantos arredondados para a tabela */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra sutil para a tabela */
+  background-color: #ffffff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate; /* Permite border-radius nas células */
+  border-spacing: 0; /* Remove espaçamento padrão */
+  min-width: 700px; /* Largura mínima para evitar quebrar em telas menores */
+}
+
+.table th, .table td {
+  padding: 1.1rem 1.5rem; /* Mais padding para células */
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table thead th {
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 2px solid #e0e0e0; /* Borda inferior do header */
+  font-weight: 700;
+  color: #495057; /* Cor do texto do header */
+  background-color: #f5f5f5; /* Fundo suave para o header */
+  position: sticky; /* Fixa o header ao rolar */
+  top: 0;
+  z-index: 1; /* Garante que o header fique acima do conteúdo */
+}
+
+.table thead th:first-child {
+  border-top-left-radius: 8px; /* Cantos arredondados para o header */
+}
+
+.table thead th:last-child {
+  border-top-right-radius: 8px; /* Cantos arredondados para o header */
+}
+
+.thActions {
+  width: 120px; /* Aumenta a largura da coluna de ações */
+  text-align: center;
+}
+
+.sortIcon {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #f0f0f0; /* Linhas divisórias mais finas */
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:last-child {
+  border-bottom: none; /* Remove borda da última linha */
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa; /* Efeito de hover suave */
+}
+
+.selectedRow {
+  background-color: #e6f4ea; /* Cor de destaque para linha selecionada */
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem; /* Mais espaçamento entre botões de ação */
+}
+
+.btnEdit, .btnDelete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #6c757d; /* Cor neutra para ícones de ação */
+  transition: color 0.2s ease, transform 0.1s ease;
+  padding: 0.3rem; /* Área clicável para ícones */
+  border-radius: 4px;
+}
+
+.btnEdit:hover {
+  color: #007bff; /* Azul para editar */
+  transform: translateY(-2px);
+}
+
+.btnDelete:hover {
+  color: #dc3545; /* Vermelho para deletar */
+  transform: translateY(-2px);
+}
+
+.emptyMessage {
+  text-align: center;
+  padding: 2rem;
+  color: #888;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .clientesContainer {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .pageTitle {
+    font-size: 1.8rem;
+  }
+
+  .actionsGroup {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .searchBar {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .btnNovoCliente {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 1.25rem;
+  }
+
+  .tableWrapper {
+    /* overflow-x: auto; já está em 100%, mas garantir scroll em mobile */
+    min-width: unset; /* Remove min-width em mobile */
+  }
+
+  .table th, .table td {
+    padding: 0.8rem 1rem; /* Menos padding em células em mobile */
+    font-size: 0.9rem;
+  }
+
+  .thActions {
+    width: 80px; /* Ajusta largura de ações em mobile */
+  }
+
+  .btnEdit, .btnDelete {
+    font-size: 1rem;
+    padding: 0.2rem;
+  }
+}

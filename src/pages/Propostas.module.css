@@ -1,0 +1,396 @@
+/* src/pages/Propostas.module.css */
+
+.propostasContainer {
+  padding: 2rem; 
+  background: #ffffff;
+  border-radius: 12px; /* Cantos mais arredondados */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Sombra mais proeminente */
+  max-width: none;
+  width: 100%; /* Ocupa a largura total disponível */
+  margin: 2rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem; /* Mais espaçamento */
+  flex-wrap: wrap; /* Permite quebrar em linhas em telas pequenas */ 
+  gap: 1rem; /* Espaçamento entre os itens do header */
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #074801; /* Verde principal */
+  margin: 0; 
+}
+
+.actionsGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Espaçamento entre a barra de busca, filtros e o botão */
+  flex-wrap: wrap; /* Permite quebrar em linhas */
+}
+
+.searchBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Permite que a barra de busca ocupe espaço */
+  min-width: 250px; /* Largura mínima para a busca */
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  color: #A0AEC0; /* Cor suave para o ícone de busca */
+  font-size: 1.1rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.8rem; /* Padding para o ícone */
+  border: 1px solid #CED4DA;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #495057;
+  background-color: #F8F9FA; /* Fundo suave */
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color: #137F09;
+  box-shadow: 0 0 0 3px rgba(19, 127, 9, 0.15);
+}
+
+.filterSelect { /* Novo estilo para os selects de filtro */
+  padding: 0.75rem 1rem;
+  border: 1px solid #CED4DA;
+  border-radius: 8px;
+  background-color: #F8F9FA;
+  color: #495057;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  appearance: none; /* Remove seta padrão do select */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292%22%20height%3D%22292%22%3E%3Cpath%20fill%3D%22%236c757d%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.8-6.1H18.9c-7.7%200-13.8%206.1-13.8%2013.8v4.4c0%207.7%206.1%2013.8%2013.8%2013.8h254.3c7.7%200%2013.8-6.1%2013.8-13.8V69.4z%22%2F%3E%3Cpath%20fill%3D%22%236c757d%22%20d%3D%22M287%20222.6a17.6%2017.6%200%200%200-13.8-6.1H18.9c-7.7%200-13.8%206.1-13.8%2013.8v4.4c0%207.7%206.1%2013.8%2013.8%2013.8h254.3c7.7%200%2013.8-6.1%2013.8-13.8V222.6z%22%2F%3E%3C%2Fsvg%3E'); /* Seta customizada */
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 0.8rem auto;
+  padding-right: 2.5rem; /* Espaço para a seta customizada */
+  flex-grow: 1;
+}
+
+.filterSelect:focus {
+  border-color: #137F09;
+  box-shadow: 0 0 0 3px rgba(19, 127, 9, 0.15);
+}
+
+
+.btnNovaProposta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #074801; 
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(7, 72, 1, 0.2);
+}
+
+.btnNovaProposta:hover {
+  background-color: #137F09;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(7, 72, 1, 0.3);
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 800px;
+}
+
+.table th, .table td {
+  padding: 1.1rem 1.5rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table thead th {
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 2px solid #e0e0e0;
+  font-weight: 700; 
+  color: #495057; 
+  background-color: #f5f5f5;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table thead th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.table thead th:last-child {
+  border-top-right-radius: 8px;
+}
+
+.thActions {
+  width: 150px;
+  text-align: center;
+}
+
+.sortIcon {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background-color: #F8F9FA;
+  transform: scale(1.005);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 1;
+}
+
+.selectedRow {
+  background-color: #E6F4EA !important;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.btnAction {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem; 
+  color: #6c757d;
+  transition: color 0.2s ease, transform 0.1s ease;
+  padding: 0.3rem;
+  border-radius: 4px;
+}
+
+.btnAction:hover {
+  color: #007BFF;
+  transform: translateY(-2px);
+}
+
+.btnDelete { 
+  color: #DC3545; 
+}
+
+.btnDelete:hover {
+  color: #c82333;
+  background-color: #ffeaea;
+}
+
+.emptyMessage {
+  text-align: center;
+  padding: 3rem;
+  color: #888888;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.emptyMessageContent { /* Wrapper para o conteúdo do estado vazio */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 100%;
+}
+
+.emptyImage { /* Estilo para a imagem de "sem propostas" */
+  width: 180px;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.emptyMessageTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #34495E;
+  margin-bottom: 0.8rem;
+}
+
+.emptyMessageText {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+.startButton {
+  background-color: #48BB78;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.startButton:hover {
+  background-color: #2F855A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Status Badges para a tabela de propostas */
+.statusBadge {
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+}
+
+.statusBadge.enviadas { background-color: #6C757D; }
+.statusBadge.negociacao { background-color: #FFC107; }
+.statusBadge.aprovada { background-color: #28A745; }
+.statusBadge.reprovada { background-color: #DC3545; }
+.statusBadge.fechamento { background-color: #007BFF; }
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .propostasContainer {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .pageTitle {
+    font-size: 1.8rem;
+  }
+  .actionsGroup {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  .searchBar {
+    width: 100%;
+    min-width: unset;
+  }
+  .filterSelect { /* Estilos de responsividade para os selects de filtro */
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .btnNovaProposta {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 1.25rem;
+  }
+  .tableWrapper {
+    min-width: unset;
+    border: none;
+    box-shadow: none;
+  }
+  .table {
+    display: block;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    min-width: unset;
+  }
+  .table thead {
+    display: none;
+  }
+  .table tbody {
+    display: block;
+    width: 100%;
+  }
+  .table tr {
+    display: block;
+    margin-bottom: 1rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e9ecef;
+    padding: 1rem;
+  }
+  .table tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  .table tr:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  .table tr:last-child {
+    margin-bottom: 0;
+  }
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #f0f0f0;
+    text-align: right;
+  }
+  .table td:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    justify-content: center;
+  }
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    color: #6c757d;
+    flex-basis: 40%;
+    padding-right: 1rem;
+  }
+  .actions {
+    margin-top: 1rem;
+  }
+  .emptyMessage {
+    padding: 2rem 1rem;
+  }
+  .emptyMessageTitle {
+    font-size: 1.3rem;
+  }
+}

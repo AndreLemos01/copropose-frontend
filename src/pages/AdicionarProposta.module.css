@@ -1,0 +1,592 @@
+/* src/pages/AdicionarProposta.module.css */
+
+.adicionar-proposta {
+  max-width: 950px; /* Largura um pouco maior */ 
+  margin: 2rem auto;
+  padding: 1.5rem; /* Mais padding */
+  background-color: #f8f9fa; /* Fundo levemente cinza */
+  border-radius: 12px; /* Cantos mais arredondados */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Sombra suave e proeminente */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem; /* Mais margem */
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0; /* Linha divisória */
+}
+
+.top-bar h2 {
+  font-weight: 700;
+  color: #074801;
+  margin: 0;
+  font-size: 2rem; /* Título maior */ 
+}
+
+.config-icon {
+  font-size: 2rem; /* Ícone maior */ 
+  color: #137f09;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.config-icon:hover {
+  color: #074801;
+}
+
+.form-proposta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espaçamento entre os cards do formulário */ 
+}
+
+.formCard {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); /* Sombra interna para o card */
+  padding: 1.5rem 2rem; /* Padding interno do card */
+  border: 1px solid #E9ECEF; /* Borda sutil */ 
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #34495e; /* Cor de título de card */
+  margin-bottom: 1.5rem; 
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f0f0f0; /* Linha de divisão no título do card */
+}
+
+.formColumns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Colunas responsivas */
+  gap: 1.5rem; /* Espaçamento entre colunas */
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Adicionado para posicionamento do dropdown de itens */
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 0.5rem; /* Mais margem */ 
+  color: #495057; /* Cor de label mais neutra */ 
+  font-size: 0.95rem; /* Fonte ligeiramente menor */ 
+}
+
+.selectField,
+.inputField,
+.textareaField {
+  padding: 0.8rem 1rem; /* Mais padding */ 
+  border: 1px solid #CED4DA; /* Borda suave */ 
+  border-radius: 8px; /* Cantos mais arredondados */ 
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #F8F9FA; /* Fundo suave */ 
+}
+
+.selectField:focus,
+.inputField:focus,
+.textareaField:focus {
+  border-color: #137f09;
+  box-shadow: 0 0 0 3px rgba(19, 127, 9, 0.2); /* Sombra de foco moderna */
+  outline: none;
+}
+
+/* Cliente Dropdown/Sugestão */
+.clientDropdown {
+  position: absolute;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 100%;
+  left: 0;
+  top: calc(100% + 5px); /* Abaixo do input */
+}
+
+.clientOption {
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  color: #343a40;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.clientOption:hover {
+  background-color: #f0f0f0;
+}
+
+.clientRegisterPrompt {
+  padding: 0.8rem 1rem;
+  margin-top: 0.5rem;
+  background-color: #E6F4EA; /* Fundo verde suave */
+  border-radius: 8px;
+  cursor: pointer;
+  color: #074801; 
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.clientRegisterPrompt:hover { 
+  background-color: #D4E8D6; 
+  color: #0D6EFD; /* Azul para hover */ 
+}
+
+.selectedClientInfo {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+/* Quill Editor */
+.quillEditor {
+  min-height: 150px; 
+  background-color: #FFFFFF; 
+  border-radius: 8px; 
+  border: 1px solid #CED4DA; 
+}
+
+.quillEditor .ql-toolbar {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border: none;
+  border-bottom: 1px solid #E0E0E0;
+  background-color: #F8F9FA;
+} 
+
+.quillEditor .ql-container {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  color: #333;
+}
+.quillEditor .ql-container.ql-snow {
+  border-top: none; /* Remove a borda superior extra do container */
+}
+
+
+/* Itens da Proposta */
+.addItemRow {
+  display: flex; /* Mantido flex para o input de busca */
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap; /* Adicionado para quebrar em telas pequenas */
+}
+
+/* Novo: Dropdown de sugestões para itens */
+.itemDropdown {
+  position: absolute;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 100%;
+  left: 0;
+  top: calc(100% + 5px); /* Abaixo do input */
+}
+
+.itemOption {
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  color: #343a40;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.itemOption:hover {
+  background-color: #f0f0f0;
+}
+
+.noItemFoundMessage {
+  padding: 0.8rem 1rem;
+  margin-top: 0.5rem;
+  background-color: #fcebeb; /* Fundo suave de alerta */
+  border-radius: 8px;
+  color: #dc3545;
+  font-weight: 500;
+  text-align: center;
+}
+
+
+.selectedItemsList { 
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.noItemsMessage {
+  padding: 1rem;
+  text-align: center;
+  color: #888888;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.itemProposta {
+  display: flex;
+  flex-direction: column; /* Alterado para coluna para melhor organização com variáveis */
+  align-items: flex-start; /* Alinha o conteúdo à esquerda */
+  background-color: #f5f5f5; /* Fundo cinza claro para o item */
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border: 1px solid #e0e0e0;
+}
+
+.itemSummary { /* Novo: Container para título e subtotal */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #e0e0e0; /* Separador */
+}
+
+.itemTitle {
+  font-weight: 700; /* Mais negrito */
+  color: #074801; /* Cor principal */
+  flex: 1; /* Ocupa o espaço restante */
+  font-size: 1.05rem; /* Levemente maior */
+}
+
+.itemSubtotal { /* Novo: Estilo para o subtotal do item */
+  font-weight: 700;
+  color: #137f09; /* Verde de destaque */
+  font-size: 1rem;
+  white-space: nowrap; /* Não quebra linha */
+}
+
+
+.itemDetails {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 100%; /* Ocupa a largura total para alinhar inputs */
+  margin-bottom: 0.8rem; /* Espaçamento entre detalhes e variáveis */
+}
+
+.itemInputGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.85rem;
+  color: #555;
+  flex-grow: 1; /* Permite que o grupo de input cresça */
+}
+
+.itemInputGroup label {
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+
+.itemInputField {
+  width: 80px;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #CED4DA;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+  background-color: #FFFFFF;
+}
+
+.itemInputField:focus {
+  border-color: #137f09;
+  box-shadow: 0 0 0 2px rgba(19, 127, 9, 0.1);
+}
+
+.removeItemButton {
+  background-color: #DC3545; /* Vermelho para remover */
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: 0.5rem; /* Padding para o ícone */
+  border-radius: 50%; /* Botão circular */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Impede que o botão diminua */
+  margin-left: auto; /* Empurra o botão para a direita na linha de detalhes */
+}
+
+.removeItemButton:hover {
+  background-color: #C82333;
+  transform: translateY(-2px);
+}
+
+/* Novos estilos para o container de variáveis do item */
+.itemVariablesContainer {
+  width: 100%;
+  background-color: #fcfcfc; /* Fundo mais claro para a área de variáveis */
+  border: 1px dashed #dbe2ea; /* Borda tracejada para diferenciar */
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 0.8rem; /* Espaçamento superior */
+}
+
+.itemVariablesLabel {
+  font-weight: 600;
+  color: #34495e;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.itemVariablesLabel svg { /* Estilo para o ícone de info nas variáveis */
+  color: #137f09;
+}
+
+.itemVariablesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.itemVariableEntry {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Permite que os elementos da variável quebrem linha */
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  background-color: #eef4f9; /* Fundo suave para cada entrada de variável */
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  border: 1px solid #dbe2ea;
+}
+
+.itemVariableEntry:last-child {
+  margin-bottom: 0;
+}
+
+.itemVariableName {
+  font-weight: 600;
+  color: #34495e;
+  flex-shrink: 0; /* Impede que o nome da variável encolha */
+}
+
+.variableInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-grow: 1; /* Permite que o wrapper de input cresça */
+}
+
+.itemVariableValueInput {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #CED4DA;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  width: 100px; /* Largura padrão para inputs de variável */
+  background-color: #FFFFFF;
+  text-align: center;
+}
+
+.itemVariableValueInput[type="checkbox"] {
+  width: auto; /* Remove largura fixa para checkbox */
+  margin-right: 0.25rem; /* Pequena margem para separar do label */
+  vertical-align: middle; /* Alinha verticalmente */
+}
+.itemVariableValueInput[type="checkbox"] + label {
+  font-size: 0.9rem;
+  color: #555;
+  user-select: none;
+  cursor: pointer;
+}
+
+
+.itemVariableValueInput:focus {
+  border-color: #137f09;
+  box-shadow: 0 0 0 2px rgba(19, 127, 9, 0.1);
+}
+
+/* Novo: Total Geral da Proposta */
+.totalGeralContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid #074801; /* Linha mais grossa para o total */
+  font-size: 1.3rem; /* Fonte maior para o total */
+  font-weight: 700;
+  color: #074801;
+}
+
+.totalGeralLabel {
+  font-weight: 600;
+  color: #34495e; /* Cor para o label do total */
+}
+
+.totalGeralValue {
+  font-size: 1.6rem; /* Valor ainda maior */
+  color: #137f09; /* Verde de destaque */
+}
+
+/* Grupo de Botões de Ação Final */
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  justify-content: flex-end; /* Alinha os botões à direita */
+}
+
+.submitButton,
+.actionButton { 
+  background-color: #074801; /* Verde Principal */ 
+  color: white;
+  border: none;
+  padding: 0.9rem 1.8rem; /* Mais padding */ 
+  border-radius: 10px; /* Cantos mais arredondados */ 
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem; /* Espaçamento entre ícone e texto */
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(7, 72, 1, 0.2);
+}
+
+.submitButton:hover,
+.actionButton:hover { 
+  background-color: #137F09;
+  transform: translateY(-3px); /* Leve elevação */
+  box-shadow: 0 6px 15px rgba(7, 72, 1, 0.3);
+}
+
+.submitButton:active,
+.actionButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(7, 72, 1, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .adicionar-proposta {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+  .top-bar h2 {
+    font-size: 1.5rem;
+  }
+  .formCard {
+    padding: 1rem;
+  }
+  .cardTitle {
+    font-size: 1.2rem;
+  }
+  .formColumns {
+    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    gap: 1rem;
+  }
+  .buttonGroup {
+    justify-content: center;
+  }
+  .submitButton,
+  .actionButton {
+    width: 100%;
+    justify-content: center;
+  }
+  .itemProposta { /* Ajustes para item individual em mobile */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.8rem;
+  }
+  .itemSummary {
+    flex-direction: column; /* Empilha título e subtotal */
+    align-items: flex-start;
+    gap: 0.2rem;
+    border-bottom: none; /* Remove a borda inferior em mobile */
+    padding-bottom: 0;
+  }
+  .itemTitle {
+    font-size: 1rem;
+  }
+  .itemSubtotal {
+    font-size: 0.95rem;
+  }
+  .itemDetails {
+    flex-direction: column; /* Empilha qtd e valor */
+    align-items: flex-start;
+    width: 100%;
+    gap: 0.5rem;
+  }
+  .itemInputGroup {
+    flex-direction: row; /* Qtd e label na mesma linha */
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%; /* Ocupa a largura total */
+  }
+  .itemInputGroup label {
+    margin-bottom: 0;
+  }
+  .removeItemButton {
+    align-self: flex-end; /* Mantém o botão de remover à direita */
+    margin-left: auto;
+  }
+  .itemVariablesContainer {
+    padding: 0.8rem;
+  }
+  .itemVariableEntry {
+    flex-direction: column; /* Empilha nome e input de variável */
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  .variableInputWrapper {
+    flex-direction: row; /* Inputs de variável na mesma linha se couber */
+    width: 100%;
+    justify-content: space-between;
+  }
+  .itemVariableValueInput {
+    width: auto; /* Permite ajuste automático */
+    flex-grow: 1;
+  }
+  .itemVariableValueInput[type="checkbox"] {
+    width: auto;
+  }
+  .itemVariableValueInput[type="checkbox"] + label {
+    margin-bottom: 0; /* Remove margin-bottom que pode ser aplicada globalmente a labels */
+  }
+  .totalGeralContainer {
+    flex-direction: column; /* Empilha label e valor */
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+  .totalGeralLabel {
+    font-size: 1.1rem;
+  }
+  .totalGeralValue {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Pode-se adicionar ajustes mais específicos aqui se necessário */
+}

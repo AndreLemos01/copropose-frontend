@@ -1,0 +1,103 @@
+/* src/components/dashboard/CRM.module.css */
+
+.kanbanContainer {
+  display: flex;
+  gap: 1.5rem; /* Aumenta o espaçamento entre as colunas */
+  overflow-x: auto; /* Permite rolagem horizontal em telas pequenas */
+  padding-bottom: 1rem;
+  align-items: flex-start; /* Alinha as colunas no topo */
+}
+
+.kanbanColumn {
+  background-color: #f0f4f8; /* Cor de fundo mais suave */
+  border-radius: 12px; /* Cantos mais arredondados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra mais pronunciada */
+  min-width: 280px; /* Largura mínima maior para as colunas */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-height: 500px; /* Altura máxima para permitir rolagem interna */
+  overflow: hidden; /* Esconde overflow do conteúdo da coluna */
+  transition: all 0.3s ease; /* Transição suave para mudanças de estado */
+}
+
+.columnTitle {
+  padding: 1rem 1.25rem; /* Ajusta o padding */
+  font-weight: 700;
+  font-size: 1.15rem; /* Aumenta o tamanho da fonte */
+  color: #2c3e50; /* Cor de texto mais escura e profissional */
+  border-bottom: 1px solid #e0e6ec; /* Borda mais sutil */
+  text-align: center; /* Centraliza o título */
+  background-color: #e6eaf0; /* Levemente diferente do fundo da coluna */
+}
+
+.droppableArea {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto; /* Permite rolagem vertical dentro da área droppable */
+  min-height: 100px; /* Garante que a área droppable seja visível mesmo sem cards */
+}
+
+/* Estilo para o card individual */
+.kanbanCard {
+  background-color: #ffffff; /* Fundo branco para o card */
+  padding: 1rem 1.25rem; /* Padding confortável */
+  margin-bottom: 1rem; /* Espaçamento entre cards */
+  border-radius: 8px; /* Cantos arredondados */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para elevação */
+  cursor: grab; /* Cursor indicando que pode ser arrastado */
+  user-select: none;
+  transition: all 0.2s ease; /* Transição para hover e dragging */
+  border: 1px solid #e0e6ec; /* Borda sutil */
+}
+
+.kanbanCard:hover {
+  transform: translateY(-3px); /* Leve elevação no hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra mais forte no hover */
+}
+
+.kanbanCard:focus {
+  outline: 2px solid #3498db; /* Borda de foco para acessibilidade */
+  outline-offset: 2px;
+}
+
+.dragging {
+  background-color: #dbe9f5; /* Cor de fundo para arrastar */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra ainda mais forte ao arrastar */
+  transform: rotate(2deg) translateY(-5px); /* Efeito de rotação e leve elevação */
+  cursor: grabbing; /* Cursor indicando arrastando */
+}
+
+.clientName {
+  margin: 0 0 0.4rem 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #34495e; /* Cor mais escura para o nome do cliente */
+}
+
+.clientProposal {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #7f8c8d; /* Cor mais suave para os detalhes da proposta */
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .kanbanContainer {
+    flex-wrap: wrap; /* Quebra as colunas em várias linhas */
+    justify-content: center; /* Centraliza as colunas */
+  }
+
+  .kanbanColumn {
+    flex: 1 1 45%; /* Duas colunas por linha em telas médias */
+    max-width: 45%;
+    margin-bottom: 1.5rem; /* Espaçamento entre as linhas de colunas */
+  }
+}
+
+@media (max-width: 768px) {
+  .kanbanColumn {
+    flex: 1 1 100%; /* Uma coluna por linha em telas pequenas */
+    max-width: 100%;
+  }
+}

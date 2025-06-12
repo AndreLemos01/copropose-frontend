@@ -1,0 +1,98 @@
+/* src/pages/ConfiguracoesProposta.module.css */
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.btnVoltar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: #074801; /* Verde Escuro - Principal */
+  transition: color 0.2s ease-in-out;
+}
+
+.btnVoltar:hover {
+  color: #137f09; /* Verde Claro - Destaque, Hover */
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #074801; /* Verde Escuro - Principal */
+  margin: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tabButton {
+  background: #E9ECEF; /* Claro - Bordas sutis, divisores */
+  border: none;
+  padding: 10px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #074801; /* Verde Escuro - Principal */
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.tabButton:hover {
+  background: #137f09; 
+  color: #fff;
+}
+
+.active {
+  background: #074801;
+  color: #fff;
+}
+
+.content {
+  background: #FFFFFF;
+  padding: 16px;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgb(0 0 0 / 0.1);
+}
+/* Adicione isso no ConfiguracoesProposta.module.css */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btnVoltar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: #074801; /* Verde Escuro - Principal */
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.btnVoltar:hover {
+  color: #137f09; /* Verde Claro - Destaque, Hover */
+}

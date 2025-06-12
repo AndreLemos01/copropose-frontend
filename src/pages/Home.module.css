@@ -1,0 +1,134 @@
+/* src/pages/Home.module.css */
+
+.homeContainer {
+  padding: 2rem; 
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Consistência de fonte */
+  color: #333333; /* Cor de texto principal */
+}
+
+.welcomeTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #074801; /* Verde Escuro - Principal */
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #6C757D; /* Cinza Médio para textos secundários */
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Colunas responsivas */
+  gap: 1.5rem; /* Espaçamento entre os cards */
+  margin-bottom: 3rem;
+}
+ 
+.metricCard {
+  background-color: #FFFFFF; /* Fundo branco e limpo */
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Sombra mais proeminente */
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação no hover */
+  border: 1px solid #E9ECEF; /* Borda sutil */
+}
+
+.metricCard:hover {
+  transform: translateY(-8px); /* Elevação no hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra mais forte no hover */
+}
+
+.metricIcon {
+  color: #137f09; /* Verde Claro - Destaque */
+  margin-bottom: 1rem;
+}
+
+.metricValue {
+  font-size: 2.5rem;
+  font-weight: 700; 
+  color: #074801; /* Verde Escuro - Principal */
+  line-height: 1; /* Garante alinhamento */
+  margin-bottom: 0.5rem;
+}
+
+.metricLabel {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 500; 
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite que os botões quebrem a linha */
+  gap: 1.5rem;
+}
+
+.actionButton {
+  background-color: #074801; /* Verde Escuro - Principal */
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 10px; /* Cantos mais arredondados */
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(7, 72, 1, 0.2);
+}
+
+.actionButton:hover {
+  background-color: #137f09; /* Verde Claro - Destaque no hover */
+  transform: translateY(-3px); /* Leve elevação no hover */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .homeContainer {
+    padding: 1rem;
+  }
+
+  .welcomeTitle {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Colunas menores em mobile */
+  }
+
+  .metricValue {
+    font-size: 2rem;
+  }
+
+  .actionButton {
+    width: 100%; /* Botões ocupam a largura total em mobile */
+    max-width: 300px; /* Limita a largura para botões empilhados */
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .metricsGrid {
+    grid-template-columns: 1fr; /* Apenas uma coluna em telas muito pequenas */
+  }
+}

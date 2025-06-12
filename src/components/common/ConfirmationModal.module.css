@@ -1,0 +1,96 @@
+/* src/components/common/ConfirmationModal.module.css */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente escuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Garante que fique acima de tudo */
+  animation: fadeIn 0.3s ease-out; /* Animação de entrada */
+}
+
+.modal {
+  background-color: #ffffff;
+  border-radius: 12px; /* Cantos arredondados */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  padding: 30px; /* Mais padding */
+  width: 90%;
+  max-width: 450px; /* Largura máxima para desktop */
+  text-align: center;
+  transform: scale(0.9); /* Começa um pouco menor */
+  animation: scaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Animação de escala */
+}
+
+.message {
+  font-size: 1.15rem; /* Fonte um pouco maior */
+  color: #34495e; /* Cor de texto padrão */
+  margin-bottom: 25px; /* Mais espaço abaixo da mensagem */
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  justify-content: center; /* Centraliza os botões */
+  gap: 15px; /* Espaçamento entre os botões */
+}
+
+.button {
+  padding: 12px 25px; /* Mais padding para botões maiores */
+  border: none;
+  border-radius: 8px; /* Cantos arredondados para os botões */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px; /* Largura mínima para botões */
+}
+
+.confirmButton {
+  background-color: #d9534f; /* Vermelho para exclusão */
+  color: white;
+}
+
+.confirmButton:hover {
+  background-color: #c9302c; /* Tom mais escuro no hover */
+  transform: translateY(-2px);
+}
+
+.cancelButton {
+  background-color: #e0e0e0; /* Cinza claro para cancelar */
+  color: #333;
+}
+
+.cancelButton:hover {
+  background-color: #c0c0c0;
+  transform: translateY(-2px);
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+  .modal {
+    padding: 20px;
+  }
+  .actions {
+    flex-direction: column; /* Botões empilhados em telas menores */
+    gap: 10px;
+  }
+  .button {
+    width: 100%; /* Botões ocupam toda a largura */
+  }
+}

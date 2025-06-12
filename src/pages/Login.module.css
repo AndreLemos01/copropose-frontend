@@ -1,0 +1,269 @@
+/* src/pages/Login.module.css */
+
+.loginWrapper {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%); /* Gradiente de fundo suave */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.loginContainer {
+  background-color: #FFFFFF;
+  border-radius: 16px; /* Cantos mais arredondados */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra mais profunda */
+  padding: 2.5rem 3rem; /* Mais padding */
+  width: 100%;
+  max-width: 400px; /* Largura máxima do cartão de login */
+  text-align: center;
+  animation: fadeInScale 0.5s ease-out forwards; /* Animação de entrada */
+}
+
+.loginHeader {
+  margin-bottom: 2rem;
+}
+
+.logo {
+  max-height: 80px; /* Tamanho do logo */
+  margin-bottom: 1rem;
+}
+
+.title { /* Este estilo não será mais usado, mas o mantive para referência */
+  font-size: 2rem;
+  font-weight: 700;
+  color: #074801;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Espaçamento entre os grupos de input */ 
+  margin-bottom: 1.5rem;
+}
+
+.inputGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #CED4DA;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.inputGroup:focus-within {
+  border-color: #137f09; /* Borda verde no foco */
+  box-shadow: 0 0 0 3px rgba(19, 127, 9, 0.2); /* Sombra suave no foco */
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  color: #CED4DA; /* Médio-claro - Bordas de inputs, placeholders */
+  font-size: 1.2rem;
+}
+
+.inputField {
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 3rem; /* Padding para acomodar o ícone */
+  border: none;
+  background-color: transparent; 
+  font-size: 1rem;
+  color: #495057;
+  border-radius: 8px;
+  outline: none; /* Remove outline padrão */
+}
+
+.inputField::placeholder {
+  color: #A0AEC0;
+}
+
+.formActions {
+  text-align: right;
+}
+
+.forgotPasswordLink {
+  font-size: 0.9rem;
+  color: #007bff; /* Azul para links */
+  text-decoration: none; 
+  transition: color 0.2s ease;
+}
+
+.forgotPasswordLink:hover {
+  color: #0056B3;
+  text-decoration: underline;
+}
+
+.loginButton {
+  background-color: #074801; /* Verde principal */
+  color: white;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(7, 72, 1, 0.2); /* Sombra para o botão */
+}
+
+.loginButton:hover {
+  background-color: #137F09; /* Verde Claro - Destaque, Hover no hover */
+  transform: translateY(-2px); /* Leve elevação no hover */
+  box-shadow: 0 6px 15px rgba(7, 72, 1, 0.3);
+}
+
+.loginButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(7, 72, 1, 0.2);
+}
+
+.divider { /* Estilo para a linha divisória "Ou entre com" */
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  text-align: center; 
+  color: #CED4DA;
+  font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.divider:not(:empty)::before {
+  margin-right: .75em;
+}
+
+.divider:not(:empty)::after {
+  margin-left: .75em;
+}
+
+.socialLoginButtons {
+  display: flex;
+  flex-direction: column; /* Botões empilhados */
+  gap: 0.8rem; /* Espaçamento entre os botões sociais */
+  margin-bottom: 1.5rem;
+}
+
+.socialButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid #CED4DA;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  color: #333333;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.socialButton:hover {
+  background-color: #F8F9FA;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.socialIcon {
+  margin-right: 0.7rem;
+  font-size: 1.3rem; /* Tamanho do ícone social */
+}
+
+/* Cores específicas para botões sociais (opcional, pode ser ajustado) */
+.socialButton.google {
+  /* color: #4285F4; */ /* Para ícone e texto */
+  border-color: #DB4437; /* Google red */
+}
+.socialButton.google .socialIcon {
+  color: #DB4437;
+}
+
+.socialButton.facebook {
+  /* color: #3b5998; */ /* Para ícone e texto */
+  border-color: #3B5998; /* Facebook blue */
+}
+.socialButton.facebook .socialIcon {
+  color: #3B5998;
+}
+
+.socialButton.outlook {
+  /* color: #0078D4; */ /* Para ícone e texto */
+  border-color: #0078D4; /* Outlook blue */
+}
+.socialButton.outlook .socialIcon {
+  color: #0078D4;
+}
+
+
+.loginFooter {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.registerLink {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.registerLink:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Animação de entrada do container de login */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .loginContainer {
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .logo {
+    max-height: 60px; /* Ajusta o tamanho do logo para telas menores */
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .loginButton {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .socialButton {
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .socialIcon {
+    font-size: 1.1rem;
+  }
+}
